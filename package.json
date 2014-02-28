@@ -1,0 +1,19 @@
+{
+  "name": "pzk-resizer",
+  "version": "0.0.0",
+  "description": "Pizokel's image resizer.",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "sudo apt-get install --quiet libgraphicsmagick1-dev"
+  },
+  "author": "Catalin Dan <dancatalin18@gmail.com>",
+  "license": "Proprietary",
+  "dependencies": {
+    "async": "^0.2.10",
+    "resize": "^0.7.2",
+    "winston": "^0.7.2",
+    "express": "^3.4.8",
+    "commander": "^2.1.0",
+    "underscore": "^1.6.0"
+  }
+}
