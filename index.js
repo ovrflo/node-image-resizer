@@ -65,7 +65,7 @@ if (cluster.isMaster) {
 
     var sizes = [
         { w: 70, h: 102, name: "thumb" },                // THUMB
-        { w: null, h: 1132, name: "zoom" },              // ZOOM
+        { w: 780, h: 1132, name: "zoom" },              // ZOOM
         { w: 390, h: 566, name: "detail" },              // DETAIL
         { w: 310, h: 450, name: "listing" },             // LISTING
         { w: 160, h: 232, name: "iphone-listing" },      // IPHONE PRODUCT LISTING
