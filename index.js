@@ -55,7 +55,7 @@ if (cluster.isMaster) {
 
     var sizes = [
         { w: 70, h: 102, name: "thumb" },                // THUMB
-        { w: 780, h: 1132, name: "zoom" },              // ZOOM
+        { w: 780, h: 1132, name: "zoom" },               // ZOOM
         { w: 390, h: 566, name: "detail" },              // DETAIL
         { w: 310, h: 450, name: "listing" },             // LISTING
         { w: 160, h: 232, name: "iphone-listing" },      // IPHONE PRODUCT LISTING
@@ -81,6 +81,7 @@ if (cluster.isMaster) {
     }
 
     app.get('/', function (req, res, next) {
+        next(); return;
         var filename = '/home/catalin/Pictures/ghost-recon-future-soldier-middle-finger-1920x1080.jpg';
         var pic = fs.readFile(filename, function (err, data) {
             if (err) {
