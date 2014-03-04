@@ -1,5 +1,5 @@
 var async = require('async');
-var resize = require('resize');
+var gm = require('gm');
 var http = require('http');
 var cluster = require('cluster');
 var winston = require('winston');
@@ -81,13 +81,11 @@ if (cluster.isMaster) {
     ];
 
     var resizeIterator = function (item, callback) {
-        resize(item.original, item.size.w, item.size.h, {}, function(err, buf){
-            if (err) {
-                callback(err);
-                return;
-            }
-            fs.writeFile(item.output, buf, callback);
-        });
+        gm(item.original, 'input.png')
+            .resize(item.size.w, item.size.h, "!")
+            .filter('Lanczos')
+            .quality(90)
+            .write(item.output, callback);
     }
 
     app.get('/', function (req, res, next) {
