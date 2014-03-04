@@ -54,16 +54,6 @@ if (cluster.isMaster) {
     }
 
     var sizes = [
-        { w: 10, h: 10 },
-        { w: 100, h: 100 },
-        { w: 500, h: 500 },
-        { w: 1000, h: 1000 },
-        { w: 2000, h: 2000 },
-        { w: 3000, h: 3000 },
-        { w: 5000, h: 5000 },
-    ];
-
-    var sizes = [
         { w: 70, h: 102, name: "thumb" },                // THUMB
         { w: 780, h: 1132, name: "zoom" },              // ZOOM
         { w: 390, h: 566, name: "detail" },              // DETAIL
