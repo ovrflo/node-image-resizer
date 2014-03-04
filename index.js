@@ -69,8 +69,7 @@ if (cluster.isMaster) {
                 callback(err);
                 return;
             }
-            //fs.writeFile(item.output, buf, callback);
-            callback(err);
+            fs.writeFile(item.output, buf, callback);
         });
     }
 
