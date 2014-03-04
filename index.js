@@ -63,6 +63,23 @@ if (cluster.isMaster) {
         { w: 5000, h: 5000 },
     ];
 
+    var sizes = [
+        { w: 70, h: 102, name: "thumb" },                // THUMB
+        { w: null, h: 1132, name: "zoom" },              // ZOOM
+        { w: 390, h: 566, name: "detail" },              // DETAIL
+        { w: 310, h: 450, name: "listing" },             // LISTING
+        { w: 160, h: 232, name: "iphone-listing" },      // IPHONE PRODUCT LISTING
+        { w: 215, h: 312, name: "iphone-detail" },       // IPHONE PRODUCT DETAIL
+        { w: 390, h: 566, name: "iphone-zoom" },         // IPHONE PRODUCT ZOOM
+        { w: 60, h: 88, name: "iphone-thumb" },          // IPHONE PRODUCT THUMB
+        { w: 319, h: 463, name: "iphone-rt-listing" },   // IPHONE RETINA PRODUCT LISTING
+        { w: 4360, h: 624, name: "iphone-rt-detail" },   // IPHONE RETINA PRODUCT DETAIL
+        { w: 780, h: 1132, name: "iphone-rt-zoom" },     // IPHONE RETINA PRODUCT ZOOM
+        { w: 120, h: 175, name: "iphone-rt-thumb" },     // IPHONE RETINA PRODUCT THUMB
+        { w: 2000, h: 2000, name: "test-2k" },           // TEST 2k x 2k
+        { w: 4000, h: 4000, name: "test-4k" },           // TEST 4k x 4k
+    ];
+
     var resizeIterator = function (item, callback) {
         resize(item.original, item.size.w, item.size.h, {}, function(err, buf){
             if (err) {
@@ -86,7 +103,7 @@ if (cluster.isMaster) {
             _(sizes).each(function (size) {
                 var item = { "size": size };
                 item.original = data;
-                item.output = path.join(__dirname, 'output') + '/' + path.basename(filename) + '-' + size.w + 'x' + size.h + '.png';
+                item.output = path.join(__dirname, 'output') + '/' + path.basename(filename) + '-' + size.name + '.png';
                 collection.push(item);
                 response.push({ "size": size, "output": item.output });
             });
